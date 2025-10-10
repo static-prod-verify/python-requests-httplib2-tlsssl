@@ -1,9 +1,8 @@
 name: Package Python Code
 
 on:
-  push:
-    branches:
-      '*'
+  repository_dispatch:
+    types: [python-build]
 
 jobs:
   build:
