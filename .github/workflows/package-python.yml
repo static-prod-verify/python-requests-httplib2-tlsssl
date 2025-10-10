@@ -13,18 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
       - name: Create ZIP package
         run: |
-          mkdir -p dist
-          zip -r dist/python_app.zip . -x "*.git*" "__pycache__/*" "*.pytest_cache*" "dist/*"
+          zip -r python_app.zip . -x "*.git*" "__pycache__/*" "*.pytest_cache*" "dist/*"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: python_app
-          path: dist/python_app.zip
+          path: python_app.zip
